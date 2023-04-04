@@ -13,6 +13,7 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
 import useBlogCalls from "../../hooks/useBlogCalls";
+import moment from "moment";
 
 
 const BlogCard = ({ blog }) => {
@@ -21,17 +22,17 @@ const BlogCard = ({ blog }) => {
   const convertRelativeTime = (date) => {
     return date.slice(0, 10) + " " + date.slice(11, 19);
   };
-  // const convertedRelativeTime =(date)=>{
-  //   return moment(date).fromNow();
-  // };
+  const convertedRelativeTime =(date)=>{
+    return moment(date).fromNow();
+  };
   return (
     <Paper
       elevation={20}
       sx={{
         maxWidth: 345,
         p: 2,
-        width: "300px",
-        height: "400px",
+        width: "350px",
+        height: "500px",
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
@@ -46,9 +47,9 @@ const BlogCard = ({ blog }) => {
         <Typography gutterBottom variant="h5" component="div">
           {blog.title}
         </Typography>
-        {/* <Typography gutterBottom variant="h5" component="div">
+        <Typography gutterBottom variant="body2" component="div">
           {convertedRelativeTime(blog.publish_date)}
-        </Typography> */}
+        </Typography>
         <Typography gutterBottom variant="body2" component="div">
           {blog.category_name}
         </Typography>

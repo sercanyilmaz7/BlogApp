@@ -9,7 +9,10 @@ const blogSlice = createSlice({
     blogs: [],
     categories:[],
     details:[],
-    myblogs:[]
+    myblogs:[],
+    loading:"",
+    error:"",
+
   },
   reducers: {
     fetchStart: (state) => {
