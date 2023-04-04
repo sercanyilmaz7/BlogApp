@@ -10,8 +10,8 @@ const blogSlice = createSlice({
     categories:[],
     details:[],
     myblogs:[],
-    loading:"",
-    error:"",
+    loading:null,
+    error:null,
 
   },
   reducers: {

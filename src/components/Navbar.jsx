@@ -147,7 +147,7 @@ function Navbar() {
           </Box>
         
           <ImageListItem
-          noWrap
+          
             component="a"
             href="/"
             sx={{
@@ -168,7 +168,6 @@ function Navbar() {
           
           <Typography
             variant="h5"
-            noWrap
             component="a"
             href=""
             sx={{

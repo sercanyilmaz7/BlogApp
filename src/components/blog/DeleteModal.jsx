@@ -6,12 +6,16 @@ import Modal from "@mui/material/Modal";
 import { modalStyle } from "../../style/globalStyle";
 import useBlogCalls from "../../hooks/useBlogCalls";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const DeleteModal = ({ deleteOpen, setDeleteOpen, id }) => {
-  const { deleteBlogsData } = useBlogCalls();
+  const { deleteBlogsData, getMyBlogsData } = useBlogCalls();
+    // const { id:userId } = useSelector((state) => state.auth);
     const navigate = useNavigate();
   const handleDeleteBlog = () => {
     deleteBlogsData("blogs", id);
+    // getMyBlogsData("blogs", userId);
+
     navigate(-1);
   };
   return (

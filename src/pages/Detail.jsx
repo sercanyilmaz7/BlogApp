@@ -32,6 +32,9 @@ const Detail = () => {
   const { getDetailsData, postCreateComments, deleteBlogsData } =
     useBlogCalls();
   const { details } = useSelector((state) => state.blog);
+   const { currentUser } = useSelector((state) => state.auth);
+   console.log(currentUser)
+   console.log(details.author)
   const [info, setInfo] = useState();
   const { id } = useParams();
   const [comment, setComment] = useState({ post: "", content: "" });
@@ -99,6 +102,9 @@ const Detail = () => {
             </Box>
           </CardActions>
           <CardContent>
+            <Typography gutterBottom variant="body2" component="div">
+              {details?.category_name}
+            </Typography>
             <Typography gutterBottom variant="h5" component="div">
               {details?.title}
             </Typography>
@@ -136,8 +142,12 @@ const Detail = () => {
           info={info}
           setInfo={setInfo}
         />
-        <DeleteModal deleteOpen={deleteOpen} setDeleteOpen={setDeleteOpen} id={id}/>
-        <Box sx={{ m: 4, display: "flex", justifyContent: "center" }}>
+        <DeleteModal
+          deleteOpen={deleteOpen}
+          setDeleteOpen={setDeleteOpen}
+          id={id}
+        />
+        {currentUser === details.author &&  <Box sx={{ m: 4, display: "flex", justifyContent: "center" }}>
           <Button
             color="success"
             variant="contained"
@@ -155,7 +165,8 @@ const Detail = () => {
           >
             DELETE BLOG
           </Button>
-        </Box>
+        </Box>}
+       
         {toggle && (
           <Card elevation={10}>
             {details?.comments?.map((comment) => (
@@ -172,7 +183,7 @@ const Detail = () => {
             ))}
 
             <TextField
-              sx={{ mt: 4, }}
+              sx={{ mt: 4 }}
               fullWidth
               label="Add a comment"
               name="content"
