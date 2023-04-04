@@ -145,33 +145,27 @@ function Navbar() {
               ))} */}
             </Menu>
           </Box>
-          <Box
+        
+          <ImageListItem
+          noWrap
+            component="a"
+            href="/"
             sx={{
-              display: "flex",
-              justifyContent: "center",
+              mr: 2,
+              display: { xs: "flex", md: "none" },
+              fontFamily: "monospace",
+              fontWeight: 700,
+              letterSpacing: ".3rem",
+              color: "inherit",
+              textDecoration: "none",
+              width: 50,
+              height: 20,
             }}
+            // sx={{ width: 50, height: 20 }}
           >
-            <ImageListItem
-              component="a"
-              href="/"
-              sx={{
-                mr: 2,
-                display: { xs: "flex", md: "none" },
-                fontFamily: "monospace",
-                fontWeight: 700,
-                letterSpacing: ".3rem",
-                color: "inherit",
-                textDecoration: "none",
-                width: 50,
-                height: 20,
-              }}
-              // sx={{ width: 50, height: 20 }}
-            >
-              <img src={clr} />
-            </ImageListItem>
-          </Box>
-
-          {/* <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
+            <img src={clr} />
+          </ImageListItem>
+          
           <Typography
             variant="h5"
             noWrap
@@ -188,8 +182,8 @@ function Navbar() {
               textDecoration: "none",
             }}
           >
-            LOGO
-          </Typography> */}
+            
+          </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             <Button
               onClick={(handleCloseNavMenu, () => navigate("/"))}
